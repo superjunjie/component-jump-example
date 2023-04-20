@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    <h1 @click="handleClickMsg">{{ msg }}</h1>
+    <h1 @click="handleClickMsg" >{{ msg }}</h1>
     <p>
       For a guide and recipes on how to configure / customize this project,<br>
       check out the
@@ -21,7 +21,7 @@
       <li><a href="https://twitter.com/vuejs" target="_blank" rel="noopener">Twitter</a></li>
       <li><a href="https://news.vuejs.org" target="_blank" rel="noopener">News</a></li>
     </ul>
-    <h3>Ecosystem</h3>
+    <h3 v-visually="visuallyData" :visually-data="JSON.stringify(visuallyData)">Ecosystem</h3>
     <ul>
       <li><a href="https://router.vuejs.org" target="_blank" rel="noopener">vue-router</a></li>
       <li><a href="https://vuex.vuejs.org" target="_blank" rel="noopener">vuex</a></li>
@@ -29,14 +29,28 @@
       <li><a href="https://vue-loader.vuejs.org" target="_blank" rel="noopener">vue-loader</a></li>
       <li><a href="https://github.com/vuejs/awesome-vue" target="_blank" rel="noopener">awesome-vue</a></li>
     </ul>
+    <el-button type="text" @click="dialogVisible = true">点击打开 Dialog</el-button>
+    <Dialog v-if="dialogVisible" v-model="dialogVisible"></Dialog>
   </div>
 </template>
 
 <script>
+import Dialog from './Dialog.vue'
 export default {
   name: 'HelloWorld',
+  components: { Dialog },
   props: {
     msg: String
+  },
+  data() {
+    return {
+      visuallyData: {
+        id: 123213,
+        value: 32331,
+        repeat: true
+      },
+      dialogVisible: false
+    }
   },
   mounted () {
     console.log('mounted')
