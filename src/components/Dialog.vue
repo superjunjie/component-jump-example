@@ -3,6 +3,7 @@
     title="提示"
     :visible.sync="visible"
     width="30%"
+    v-bind="getExposureTrackerProps('dialog_content_expose', { arg1: 132, arg2: 456, repeat: true })"
   >
     <span>这是一段信息</span>
     <span slot="footer" class="dialog-footer">

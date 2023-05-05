@@ -9,7 +9,6 @@
 <script>
 import HelloWorld from './components/HelloWorld.vue'
 import Inspector from '../vue-inspector-tool/Inspector.vue'
-
 export default {
   name: 'App',
   components: {
